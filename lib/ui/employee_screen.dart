@@ -23,7 +23,6 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
 
 @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
       _ageController = new TextEditingController(text: widget.employee.age);
@@ -71,38 +70,37 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
                decoration: InputDecoration(labelText: 'Description'),
              ),
              Padding(padding: EdgeInsets.all(5.0)),
-
-             RaisedButton(
-                child: (widget.employee.id != null) ? Text(
-                  'update',style: TextStyle(color: Colors.white),) : Text('save',style: TextStyle(color: Colors.white),) ,
-                 color: Colors.deepPurpleAccent,
-                 onPressed: () {
-                  if(widget.employee.id != null){
-                    db.updateEmployee(Employee.fromMap({
-                      'id' : widget.employee.id,
-                      'age' : _ageController.text,
-                      'name' : _nameController.text,
-                      'department' :  _departmentController.text,
-                      'city' : _cityController.text,
-                      'description' : _descriptionController.text
-                    })).then((_){
-                      Navigator.pop(context, 'update');
-    }) ;
-                    } else {
-                    db.saveEmployee(Employee(
-                    _ageController.text,
-                    _nameController.text,
-                    _departmentController.text,
-                    _cityController.text,
-                    _descriptionController.text
-    )).then((_){
-    Navigator.pop(context, 'save');
-    });
-    }
-
-
-                 },
-                 ),
+    //
+    //          TextButton(
+    //             child: (widget.employee.id != null) ? Text(
+    //               'update',style: TextStyle(color: Colors.black),) : Text('save',style: TextStyle(color: Colors.white),) ,
+    //              onPressed: () {
+    // //               if(widget.employee.id != null){
+    // //                 db.updateEmployee(Employee.fromMap({
+    // //                   'id' : widget.employee.id,
+    // //                   'age' : _ageController.text,
+    // //                   'name' : _nameController.text,
+    // //                   'department' :  _departmentController.text,
+    // //                   'city' : _cityController.text,
+    // //                   'description' : _descriptionController.text
+    // //                 })).then((_){
+    // //                   Navigator.pop(context, 'update');
+    // // }) ;
+    // //                 } else {
+    // //                 db.saveEmployee(Employee(
+    // //                 _ageController.text,
+    // //                 _nameController.text,
+    // //                 _departmentController.text,
+    // //                 _cityController.text,
+    // //                 _descriptionController.text
+    // // )).then((_){
+    // // Navigator.pop(context, 'save');
+    // // });
+    // // }
+    //
+    //
+    //              },
+    //              ),
 
            ],
          ),
